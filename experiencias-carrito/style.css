@@ -1,0 +1,455 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1ece7;
+  margin: 20px;
+}
+
+h1, h2, h3, h4, p {
+  text-align: center;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "New Amsterdam", sans-serif;
+  font-size: 70px;
+}
+
+h2, h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 15px;
+}
+
+h3 {
+  font-size: 10px;
+}
+
+h4 {
+  font-family: "Unbounded", sans-serif;
+  font-size: 25px;
+}
+
+p {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 20px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #114358;
+  color: #FFFFFF;
+  padding: 15px;
+  position: relative;
+
+}
+
+nav {
+  position: relative;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 25px;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+nav a.active {
+  text-decoration: underline;
+}
+
+main {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Carrito */
+#carrito {
+  margin: 20px auto;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  max-width: 700px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#carrito h2 {
+  background-color: #114358;
+  color: #FFFFFF;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+#elementos-carrito {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+#elementos-carrito li {
+  font-size: 22px;
+  font-weight: 700;
+  background-color: #f2aa1f;
+  padding: 5px;
+  margin: 5px 10px;
+  list-style-position: inside;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Botones */
+button {
+  padding: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #970110;
+}
+
+button#comprar, button#cancelar {
+  width: 45%;
+  padding: 12px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 5px;
+}
+
+button#comprar {
+  background-color: #28a745;
+}
+
+button#cancelar {
+  background-color: #d31629;
+}
+
+button#comprar:hover {
+  background-color: #218838;
+}
+
+button#cancelar:hover {
+  background-color: #d5091e;
+}
+
+button.decrementar, button.incrementar {
+  background-color: #f1ece7;
+  color: rgb(51, 50, 50);
+  padding: 6px;
+  border: 1px solid rgb(51, 50, 50);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button.decrementar:hover, button.incrementar:hover {
+  background-color: #aca4a5;
+}
+
+/* boton anadir al carrito */
+.añadir-al-carrito {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.añadir-al-carrito:hover {
+  background-color: #218838;
+}
+
+/* Experiencias y Productos */
+.experiencias, .productos-regionales {
+  display: grid;
+  justify-content: center;
+  gap: 20px;
+}
+/* Para pantallas grandes: 4 imágenes por fila */
+@media (min-width: 1024px) {
+  .experiencias, .productos-regionales {
+      grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Para tablets: 2 imágenes por fila */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .experiencias, .productos-regionales {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Para teléfonos: 1 imagen por fila */
+@media (max-width: 767px) {
+  .experiencias, .productos-regionales {
+      grid-template-columns: 1fr;
+  }
+}
+
+.experiencia, .producto {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.experiencia img, .producto img {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+}
+
+.experiencia:hover, .producto:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #f2aa1f;
+}
+
+.titulo {
+  background-color: #f2aa1f;
+  color: #114358;
+  text-align: center;
+  margin: 10px;
+  border-radius: 5px;
+  padding: 8px;
+  
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #114358;
+  color: white;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}
+
+.link-footer {
+  color: #ffffff;
+}
+
+.link-footer:hover {
+  color: #f2aa1f;
+  font-weight: bold;
+}
+
+.tus-experiencias {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #114358;
+  text-align: center;
+  background-color: #f8f8f8;
+  padding: 12px;
+  margin: 20px auto;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nosotros-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+/* Encabezado de la página de "Nosotros" */
+.nosotros-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.nosotros-header h1 {
+  font-family: "New Amsterdam", sans-serif;
+  font-size: 36px;
+  color: #114358;
+  margin: 10px 0;
+}
+
+/* Contenido de la sección "Nosotros" */
+.nosotros-content {
+  font-family: "New Amsterdam", sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+  color: #555;
+}
+
+/* Cada sección dentro del contenedor principal */
+.nosotros-section {
+  margin-top: 20px;
+}
+
+.nosotros-section h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 34px;
+  color: #f2aa1f;
+  margin-bottom: 8px;
+}
+
+/* Imagen centrada */
+.nosotros-image-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.nosotros-image {
+  width: 100%;
+  max-width: 1000px; /* Ajusta el tamaño máximo aquí */
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Estilo para la lista dentro de la sección "Nosotros" */
+.nosotros-section ul {
+  list-style-type: none; /* Quita los puntos de la lista */
+  padding: 0; /* Elimina el padding por defecto */
+  margin: 10px 0;
+}
+
+/* Estilo para cada elemento de la lista */
+.nosotros-section li {
+  font-family: "New Amsterdam", sans-serif;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+  padding: 8px 0; /* Espaciado interno para cada item */
+  border-left: 4px solid #f2aa1f; /* Línea decorativa a la izquierda */
+  padding-left: 10px; /* Espacio entre la línea y el texto */
+}
+
+/* Estilo para resaltar palabras en negrita */
+.nosotros-section li strong {
+  color: #114358; /* Color diferente para el texto en negrita */
+}
+
+
+/* Estilo general para el contenedor */
+.contact-form {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+/* Estilo para el encabezado de la sección de contacto */
+.contact-form h2 {
+  text-align: center;
+  font-family: "New Amsterdam", sans-serif;
+  font-size: 28px;
+  color: #114358;
+  margin-bottom: 15px;
+}
+
+/* Estilo para el texto descriptivo */
+.contact-form p {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Estilo para la estructura del formulario */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+/* Estilo para las etiquetas */
+label {
+  font-family: "Montserrat", sans-serif;
+  color: #114358;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Estilo para los campos de entrada y área de texto */
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: "New Amsterdam", sans-serif;
+}
+
+/* Estilo de enfoque para los campos */
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #f2aa1f;
+  outline: none;
+}
+
+/* Estilo para el botón de envío */
+.button-form {
+  background-color: #28a745;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+/* Hover para el botón de envío */
+.button-form:hover {
+  background-color: #218838;
+}
